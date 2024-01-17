@@ -1,0 +1,118 @@
+
+/* Medium screens (2 columns) */
+@media screen and (max-width: 768px) {
+    #card-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+    .container-fluid {
+        width: 760px;
+        margin: auto;
+    }
+    .container-fluid header {
+        width: 85%;
+        display: grid;
+        grid-template-columns: 1fr 10px;
+        margin-top: 50px;
+    }
+    div .card{
+        width: 80%;
+    }
+    .cart-view {
+        position: fixed;
+        top: 0;
+        left: 100%;
+        /* left: calc(100% - 500px); */
+        width: 390px;
+        background-color: #ffffff;
+        border: 1px wheat;
+        height: 1024px;
+        z-index: 1000; 
+     
+    }
+   div .cartPrice {
+    /* width: 40px; */
+        margin: 0px;
+        margin-top: 40px;
+       
+        font-size: 22px;
+    }
+    div .cartText {
+        display: none;
+        width: 10px;
+    }
+    
+     .cart-view.active{
+    left: calc(100% - 390px);
+    height: 1024px;
+    } 
+    .listCart li {
+        color: #ffffff00;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+/* Small screens (1 column) */
+@media screen and (max-width: 576px) {
+    #card-list {
+        grid-template-columns: 1fr; /* 1 column for small screens */
+    }
+    .container-fluid {
+        width: 400px;
+        margin: auto;
+    }
+    .container-fluid header {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 10px;
+        margin-top: 50px;
+    }
+    div .card{
+        width: 80%;
+    }
+    /* #card-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns 
+        gap: 20px; /* Space between grid items 
+        margin-top: 50px;
+    } */
+    .cart-view {
+        position: fixed;
+        top: 0;
+        left: 100%;
+        /* left: calc(100% - 500px); */
+        width: 390px;
+        background-color: #ffffff;
+        border: 1px wheat;
+        height: 844px;
+        z-index: 1000; 
+     
+    }
+   div .cartPrice {
+    /* width: 40px; */
+        margin: 0px;
+        margin-top: 40px;
+       
+        font-size: 22px;
+    }
+    div.cartText {
+        display: none;
+        width: 10px;
+        color: #ffffff00;
+    }
+    .listCart li {
+        color: #ffffff00;
+    }
+    
+     .cart-view.active{
+    left: calc(100% - 400px);
+    height: 854px;
+    } 
+}
