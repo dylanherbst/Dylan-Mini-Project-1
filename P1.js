@@ -8,6 +8,7 @@ class Product {
         this._description = description;
         this.#stockCount = 0;
     }
+
     static compare(p1, p2) {
         if (p1.price > p2.price) {
             return `${p1.title} is more expensive than ${p2.title}`;
@@ -22,9 +23,11 @@ class Product {
         this.#stockCount += num;
         return this.#stockCount;
     }
+
     get title () {
         return this._title;
     };
+
     set title(newtitle) {
         if (newtitle === '' || typeof newtitle === 'number') {
             throw new Error('Error Try Again');
@@ -35,6 +38,7 @@ class Product {
     get price () {
         return this._price;
     };
+
     set price(newPrice) {
         if (typeof newPrice === '' || newPrice <= 0) {
             throw new Error('Error Try Again');
@@ -45,6 +49,7 @@ class Product {
     get description () {
         return this._description;
     };
+
     set description(newdescription) {
         if (newdescription === '' || typeof newdescription === 'number') {
             throw new Error('Error Try Again');
@@ -53,6 +58,7 @@ class Product {
         }
     }
 }
+
 
 
 // function addCard(product) {
@@ -67,9 +73,11 @@ class Product {
 // product.description;
 // template.querySelector('.card-price').innerText =
 // product.price;
+
 //     document.querySelector('#card-list')
 //     .appendChild(template);
 //     }
+
 
     let product1 = new Product(1, "Le Club Armchair", 13265.00, "Made in Italy");
     let product2 = new Product(2, "Bristol System Coffee Table", 30100.00, "Made in Italy Designed by Jean-Marie Massaud");
@@ -78,6 +86,7 @@ class Product {
     let product5 = new Product(5, "Elia Marble Dining Table", 148000, "Elia Marble effortlessly commands attention in any space.");
     let product6 = new Product(6, "Voyage Dining Table II - the essentialist", 92000, "theessentialist, essentialist, the essentialist studio, the essentialist furniture");
 
+
 // addCard(product1);
 // addCard(product2);
 // addCard(product3);
@@ -85,8 +94,11 @@ class Product {
 // addCard(product5);
 // addCard(product6);
 
+// let products = [];
+let cartList = [];
 
 ///// OPEN CART BUTTON ///////
+
 document.addEventListener('DOMContentLoaded', () => {
     const cartIcon = document.getElementById('iconify-icon');
     const cartView = document.querySelector(".cart-view");
@@ -94,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cartIcon.addEventListener('click', () => {
         cartView.classList.toggle('active');
     });
+
     const closeShop = document.querySelector('.closeShop');
     closeShop.addEventListener('click', () => {
         cartView.classList.remove('active');
@@ -101,26 +114,30 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ///// OPEN CART BUTTON ///////
 
-let products = [product1, product2, product3, product4,product5, product6 ];
-let cartList = [];
+
+// let products = [product1, product2, product3, product4,product5, product6 ];
+
+
 
 function addCard(product) {
     const template = document.getElementById("card-template").content.cloneNode(true);
+
     // Populate the template with product details
     template.querySelector('.card-title').innerText = product.title;
     template.querySelector('.card-text').innerText = product.description;
     template.querySelector('.card-price').innerText = `Total: $ ${product.price}`;
+
     // Add event listener to the Add to Cart button
     const addToCartButton = template.querySelector('.addToCart');
     addToCartButton.addEventListener('click', () => {
         addToCart(product.id); // Call addToCart with the product id
     });
+
     document.querySelector('#card-list').appendChild(template);
 }
+
 // Add products to the page
-products.forEach(product => addCard(product));
-
-
+// products.forEach(product => addCard(product));
 
 
 
@@ -130,9 +147,11 @@ function reloadCart() {
     listCartElement.innerHTML = "";
     let count = 0;
     let totalPrice = 0;
+
     cartList.forEach((item, key) => {
         totalPrice += item.price * item.quantity;
         count += item.quantity;
+
         let newDiv = document.createElement("li");
         newDiv.innerHTML = `
             <div class="cartTitle">${item.title}</div>
@@ -145,16 +164,17 @@ function reloadCart() {
         `;
         listCartElement.appendChild(newDiv);
     });
+
     const totalElement = document.querySelector('.total');
     const quantityElement = document.querySelector('.quantity');
     if (totalElement) totalElement.innerText = totalPrice.toLocaleString();
     if (quantityElement) quantityElement.innerText = count;
 };
 
-reloadCart();
-
-
-
+document.addEventListener('DOMContentLoaded', () => {
+    // call reloadCart here or any other DOM manipulation code
+    reloadCart();
+});
 
 
 
@@ -164,27 +184,53 @@ function addToCart (productId) {
     console.log("Adding to cart:", productId); // Debugging line
    
     const productToAdd = products.find(product => product.id === productId);
+
     console.log("Product to add:", productToAdd); 
     if (!productToAdd) {
         console.error('Product not found!');
         return;
     }
+
     const foundIndex = cartList.findIndex(item => item.id === productToAdd.id);
     if (foundIndex === -1) {
         // cartList.push({ ...productToAdd, quantity: 1 });
         cartList.push({ 
             id: productToAdd.id,
             title: productToAdd.title, 
-            description: productToAdd.description, 
+            // description: productToAdd.description, 
             price: productToAdd.price, 
             quantity: 1 
         });
     } else {
         cartList[foundIndex].quantity += 1;
     }
+
     reloadCart();
 };
 
+
+
+// function addToCart(productId) {
+//     const productToAdd = products.find(product => product.id === productId);
+//     if (!productToAdd) {
+//         console.error('Product not found!');
+//         return;
+//     }
+
+//     const foundIndex = cartList.findIndex(item => item.id === productToAdd.id);
+//     if (foundIndex === -1) {
+//         cartList.push({ 
+//             id: productToAdd.id,
+//             title: productToAdd.title,
+//             price: productToAdd.price,
+//             quantity: 1 
+//         });
+//     } else {
+//         cartList[foundIndex].quantity += 1;
+//     }
+
+//     reloadCart();
+// }
 
 
 
@@ -200,5 +246,22 @@ const changeQuantity = (key, change) => {
 reloadCart();
 }
 };
+
 const totalElement = document.querySelector('.total');
-totalElement.innerText = totalPrice.toLocaleString();
+
+// totalElement.innerText = totalPrice.toLocaleString();
+
+
+
+
+
+// function fetchApiData() {
+//     fetch('https://api.escuelajs.co/api/v1/products')
+//         .then(response => response.json())
+//         .then(data => {
+//             data.forEach(product => addApiCard(product));
+//         })
+//         .catch(error => console.error('Error fetching data:', error));
+// }
+
+

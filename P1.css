@@ -78,6 +78,9 @@ div .card-title {
 div .card-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    height: 150px; /* Height of the text box */
+    overflow: auto;
+
 }
 div .card-price {
     margin-top: 20px;

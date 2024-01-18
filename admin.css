@@ -72,6 +72,7 @@ iconify-icon {
     justify-content: space-around;
     order: 2;
     width: 300px;
+    animation: slideInFromLeft 0.5s ease-out;
     /* Width and height removed to let grid define the size */
 }
 input {
@@ -151,22 +152,22 @@ div .card-title {
 div .card-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    height: 150px; /* Height of the text box */
+    overflow: auto;
 }
 div .card-price {
     margin-top: 20px;
     margin-bottom: 40px;
     font-size: 18px;
 }
-.addToCart {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: #f1f1f1;
-    transition: background-color 0.3s, color 0.3s;
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
