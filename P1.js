@@ -158,6 +158,8 @@ reloadCart();
 
 
 
+
+
 function addToCart (productId) {
     console.log("Adding to cart:", productId); // Debugging line
    
