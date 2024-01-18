@@ -43,7 +43,7 @@
     
      .cart-view.active{
     left: calc(100% - 390px);
-    height: 1024px;
+    height: 895px;
     } 
     .listCart li {
         color: #ffffff00;

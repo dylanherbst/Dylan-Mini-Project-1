@@ -121,6 +121,9 @@ function addCard(product) {
 products.forEach(product => addCard(product));
 
 
+
+
+
 function reloadCart() {
     console.log("Reloading cart with items:", cartList);
     const listCartElement = document.querySelector('.listCart');
@@ -150,6 +153,11 @@ function reloadCart() {
 
 reloadCart();
 
+
+
+
+
+
 function addToCart (productId) {
     console.log("Adding to cart:", productId); // Debugging line
    
@@ -174,6 +182,10 @@ function addToCart (productId) {
     }
     reloadCart();
 };
+
+
+
+
 
 
 // Function to change quantity (needs implementation)
