@@ -44,7 +44,7 @@ iconify-icon {
 
 .form {
     font-family: 'Roboto', sans-serif;
-    height: 370px;
+    height: 490px;
     max-width: 300px ;
     font-size: 20px;
     padding: 10px;
@@ -137,7 +137,7 @@ input:focus {
 div .card {
     max-width: 300px ;
     margin-right: 20px;
-    height: 370px;
+    height: 490px;
 }
 
 #card-list {
@@ -148,13 +148,16 @@ div .card {
 }
 div .card-title {
     font-size: 26px;
+    height: 90px; /* Height of the text box */
+    overflow: auto;
 }
 div .card-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
-    height: 150px; /* Height of the text box */
+    height: 190px; /* Height of the text box */
     overflow: auto;
 }
+
 div .card-price {
     margin-top: 20px;
     margin-bottom: 40px;

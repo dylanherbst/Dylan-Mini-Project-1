@@ -74,11 +74,13 @@ div .card{
 }
 div .card-title {
     font-size: 26px;
+    overflow: auto;
+    height: 120px;
 }
 div .card-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
-    height: 150px; /* Height of the text box */
+    height: 190px; /* Height of the text box */
     overflow: auto;
 
 }

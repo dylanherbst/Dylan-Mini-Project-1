@@ -61,24 +61,6 @@ class Product {
 
 
 
-// function addCard(product) {
-//     // clone the template
-//     const template =
-//     document.getElementById("card-template")
-//     .content.cloneNode(true);
-//     // populate the template
-//     template.querySelector('.card-title').innerText =
-//     product.title;
-//     template.querySelector('.card-text').innerText =
-// product.description;
-// template.querySelector('.card-price').innerText =
-// product.price;
-
-//     document.querySelector('#card-list')
-//     .appendChild(template);
-//     }
-
-
     let product1 = new Product(1, "Le Club Armchair", 13265.00, "Made in Italy");
     let product2 = new Product(2, "Bristol System Coffee Table", 30100.00, "Made in Italy Designed by Jean-Marie Massaud");
     let product3 = new Product(3, "High ESI Luxury Sofa", 11990.00, "Everything Studios Italy");
@@ -136,8 +118,6 @@ function addCard(product) {
     document.querySelector('#card-list').appendChild(template);
 }
 
-// Add products to the page
-// products.forEach(product => addCard(product));
 
 
 
@@ -210,31 +190,6 @@ function addToCart (productId) {
 
 
 
-// function addToCart(productId) {
-//     const productToAdd = products.find(product => product.id === productId);
-//     if (!productToAdd) {
-//         console.error('Product not found!');
-//         return;
-//     }
-
-//     const foundIndex = cartList.findIndex(item => item.id === productToAdd.id);
-//     if (foundIndex === -1) {
-//         cartList.push({ 
-//             id: productToAdd.id,
-//             title: productToAdd.title,
-//             price: productToAdd.price,
-//             quantity: 1 
-//         });
-//     } else {
-//         cartList[foundIndex].quantity += 1;
-//     }
-
-//     reloadCart();
-// }
-
-
-
-
 
 // Function to change quantity (needs implementation)
 const changeQuantity = (key, change) => {
@@ -253,15 +208,5 @@ const totalElement = document.querySelector('.total');
 
 
 
-
-
-// function fetchApiData() {
-//     fetch('https://api.escuelajs.co/api/v1/products')
-//         .then(response => response.json())
-//         .then(data => {
-//             data.forEach(product => addApiCard(product));
-//         })
-//         .catch(error => console.error('Error fetching data:', error));
-// }
 
 
