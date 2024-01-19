@@ -79,6 +79,9 @@ class Product {
 // let products = [];
 let cartList = [];
 
+
+
+
 ///// OPEN CART BUTTON ///////
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -101,6 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+
+///// ADD CARD FUNCTION //////
+
 function addCard(product) {
     const template = document.getElementById("card-template").content.cloneNode(true);
 
@@ -118,7 +126,14 @@ function addCard(product) {
     document.querySelector('#card-list').appendChild(template);
 }
 
+///// ADD CARD FUNCTION //////
 
+
+
+
+
+
+///// RELOAD CART WITH ITEMS FUNCTION //////
 
 
 function reloadCart() {
@@ -157,8 +172,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+///// RELOAD CART WITH ITEMS FUNCTION //////
 
 
+
+
+
+
+///// ADD TO CART FUNCTION //////
 
 function addToCart (productId) {
     console.log("Adding to cart:", productId); // Debugging line
@@ -188,8 +209,13 @@ function addToCart (productId) {
     reloadCart();
 };
 
+///// ADD TO CART FUNCTION //////
 
 
+
+
+
+///// CHANGE CARTVIEW QUANTITY FUNCTION //////
 
 // Function to change quantity (needs implementation)
 const changeQuantity = (key, change) => {
@@ -203,6 +229,9 @@ reloadCart();
 };
 
 const totalElement = document.querySelector('.total');
+
+///// CHANGE CARTVIEW QUANTITY FUNCTION //////
+
 
 // totalElement.innerText = totalPrice.toLocaleString();
 
