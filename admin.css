@@ -174,3 +174,9 @@ div .card-price {
         opacity: 1;
     }
 }
+
+header {
+    position: sticky;
+    top: 10px;
+    z-index: 15;
+}
